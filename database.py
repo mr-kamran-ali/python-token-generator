@@ -1,10 +1,9 @@
 import sqlite3
 from sqlite3 import Error
+from config import SQLITE_DATABASE
 
 
-def main():
-    database = r"tokens_db.db"
-
+def initialize():
     sql_create_projects_table = """CREATE TABLE IF NOT EXISTS tokens(
                                         id integer PRIMARY KEY,
                                         token text NOT NULL,
@@ -13,7 +12,7 @@ def main():
                                     ); """
 
     # create a database connection
-    conn = create_connection(database)
+    conn = get_conn()
 
     # create tables
     if conn is not None:
@@ -22,6 +21,11 @@ def main():
 
     else:
         print("Error! cannot create the database connection.")
+
+
+def get_conn(database=SQLITE_DATABASE):
+    conn = create_connection(database)
+    return conn
 
 
 def create_connection(db_file):
@@ -52,5 +56,12 @@ def create_table(conn, create_table_sql):
         print(e)
 
 
-if __name__ == "__main__":
-    main()
+def insert_token(conn, token):
+    try:
+        sql = f"""INSERT INTO tokens(token) 
+                  VALUES('{token}')"""
+        c = conn.cursor()
+        c.execute(sql)
+        conn.commit()
+    except Exception as e:
+        print(e)
