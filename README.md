@@ -1,12 +1,6 @@
-# Python Random Token Generator
-**Generates/reads from file random tokens and saves them in database**
-
-* Program will generate 10 millions 7 character lower-case random tokens and will dump them in a file. 
-* Then read all the tokens and save them in database while checking for non-unique tokens. 
-* At the end program will print all the non-unique tokens and three most common tokens.
-
-
 - [Python Random Token Generator](#python-random-token-generator)
+  - [Process Flow in BPMN](#process-flow-in-bpmn)
+  - [Database Class Diagram](#database-class-diagram)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installing](#installing)
@@ -14,6 +8,24 @@
   - [Authors](#authors)
   - [License](#license)
 
+
+
+# Python Random Token Generator
+**Generates/reads from file random tokens and saves them in database**
+
+* Program will generate 10 millions 7 character lower-case random tokens and will dump them in a file. 
+* Then read all the tokens and save them in database while checking for non-unique tokens. 
+* At the end program will print all the non-unique tokens and three most common tokens.
+
+## Process Flow in BPMN:
+
+![Process Flow](images/process_flow_diagram.jpeg)
+
+## Database Class Diagram:
+
+![Database Diagram](images/database_diagram.png)
+
+**Database Schema is available in `db_schema.sql` file**
 
 ## Getting Started
 
