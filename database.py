@@ -6,20 +6,20 @@ from config import SQLITE_DATABASE
 def initialize():
     """Initializes the database, creates schema"""
 
-    sql_create_projects_table = """CREATE TABLE IF NOT EXISTS tokens(
+    sql_create_tokens_table = """CREATE TABLE IF NOT EXISTS tokens(
                                         id integer PRIMARY KEY,
                                         token text NOT NULL,
                                         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
                                         UNIQUE(token)
                                     ); """
 
-    # create a database connection
+    # get a database connection
     conn = get_conn()
 
     # create tables
     if conn is not None:
-        # create projects table
-        create_table(conn, sql_create_projects_table)
+        # create tokens table
+        create_table(conn, sql_create_tokens_table)
         print("Database Initialized")
 
     else:

@@ -28,6 +28,7 @@ def save_all_tokens_database(tokens):
     """
     print("Saving tokens in database...")
 
+    # Saving all the tokens in db one by one
     conn = db.get_conn()
     non_unique_tokens = []
     for token in tokens:

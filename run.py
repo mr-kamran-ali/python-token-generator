@@ -9,13 +9,14 @@ from collections import Counter
 
 def main():
     """Main method of the program to run everything automatically and print the results in console."""
+    # Starting time to calculate total time elapsed in the process
     start = time.process_time()
 
     # Initialize database
     db.initialize()
 
     # Generate tokens and saves them in tokens file.
-    generator.generate_tokens(100000)
+    generator.generate_tokens(1000000)
 
     # Read tokens from file and save them in database while printing three most common tokens
     tokens = reader.read_all_tokens()
